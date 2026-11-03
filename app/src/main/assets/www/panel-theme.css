@@ -1,0 +1,151 @@
+/* پوسته‌ی اپ روی پنل افزونه (داخل shadow DOM تزریق می‌شود) */
+:host{display:block}
+.panel{width:100% !important;max-width:none !important;height:calc(100vh - var(--hdr,56px) - var(--bot,0px)) !important;max-height:none !important;
+  border:0 !important;border-radius:0 !important;box-shadow:none !important;font-size:14px;background:var(--bg2)}
+
+/* حذف نشانگرهای اسکرول */
+.sbtn{display:none !important}
+.bodywrap{padding-left:0 !important}
+.body{padding:10px 0 16px !important;margin-top:0 !important;background:var(--bg2);scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.body::-webkit-scrollbar{display:none !important;width:0 !important}
+#min{display:none !important}
+
+/* سربرگ پنل: روشن و جمع‌وجور */
+.hd{background:var(--bg) !important;color:var(--fg) !important;border-bottom:1px solid var(--line);padding:10px 14px !important;gap:8px !important;cursor:default !important}
+.hd b,.hd .ttl b{color:var(--fg);font-size:15px !important}
+.hd .ctx{color:var(--mut) !important;opacity:1 !important;font-size:12px !important}
+.hd button{background:var(--acc2) !important;color:var(--acc) !important;width:38px !important;height:38px !important;border-radius:13px !important;font-size:17px !important}
+.hd button.wide{width:auto !important;padding:0 12px !important;font-size:13px !important}
+.hd button:active{filter:brightness(.92)}
+.hd #cmpb .n,.hd button.wide .n{background:var(--acc) !important;color:var(--accfg) !important}
+
+/* کارت‌ها */
+.verdict{margin:4px 14px 0 !important;padding:13px 14px !important;font-size:15px !important;border-radius:16px !important;line-height:1.7}
+.step,.risk,.thr{margin-left:14px !important;margin-right:14px !important;margin-bottom:10px !important;border-radius:18px !important;
+  border:1px solid var(--line) !important;box-shadow:0 2px 10px rgba(24,28,60,.05)}
+.step>.sh{padding:14px 14px !important}
+.step>.sh .tt,.risk .rh .tt{font-size:14.5px !important}
+.step>.sh .num{width:30px !important;height:30px !important;font-size:13px !important}
+.risk .rh{padding:13px 14px !important}
+.sc{padding:4px 14px 14px !important}
+
+/* تب‌ها */
+.tabs{margin:12px 14px 0 !important;padding:4px !important;border-radius:15px !important}
+.tabs button{padding:10px 4px !important;font-size:13.5px !important;border-radius:12px !important}
+
+/* ورودی‌ها */
+.fld{margin-top:10px !important}
+.fld label{font-size:12.5px !important}
+.fld input{font-size:15px !important;padding:11px 12px !important;border-radius:13px !important}
+.fld button.pick{padding:0 14px !important;border-radius:13px !important}
+.yn button{padding:9px !important;font-size:13.5px !important;border-radius:10px !important}
+.trow label{font-size:12.5px !important}
+.trow input{font-size:13.5px !important;padding:7px 8px !important}
+.cr{font-size:12.5px !important;padding:8px 0 !important}
+.calc{border-radius:13px !important;padding:4px 12px !important}
+.legend,.note,.msg,.empty{font-size:12.5px !important;line-height:1.95 !important}
+.msg,.note{border-radius:14px !important}
+
+/* نوار پایین: شناور و گرد */
+.dock{margin:0 12px 10px !important;padding:8px 8px 6px !important;border:1px solid var(--line) !important;border-radius:22px !important;
+  box-shadow:0 8px 28px rgba(24,28,60,.18) !important;background:var(--bg) !important}
+.dock .sub{padding:2px !important;gap:6px !important}
+.dock .sub button{font-size:13px !important;padding:8px 15px !important}
+.dock .nav button{font-size:11.5px !important;padding:8px 2px 6px !important;border-radius:15px !important}
+.dock .nav button .ic{font-size:22px !important}
+
+/* اسم و آرم تکراری برنامه حذف می‌شود (نام نماد در سربرگ برنامه است)؛ فقط نماد و قیمت می‌ماند */
+.hd .lg,.hd .ttl b{display:none !important}
+.hd .ctx{font-size:14px !important;font-weight:700 !important;color:var(--fg) !important}
+.dock .sub{padding-bottom:4px !important}
+
+/* ================= رنگ و گرادیان ================= */
+.panel{background:radial-gradient(130% 36% at 100% 0%,rgba(99,102,241,.14),transparent 62%),radial-gradient(90% 30% at 0% 12%,rgba(6,182,212,.10),transparent 60%),var(--bg2)}
+.body{background:transparent !important}
+
+/* نتیجه‌ی اصلی بالای صفحه: شیشه‌ای گرادیانی */
+.verdict{color:#fff !important;border:0 !important;position:relative;overflow:hidden;text-shadow:0 1px 2px rgba(0,0,0,.18);box-shadow:0 10px 24px -10px var(--vg,rgba(79,70,229,.6)) !important}
+.verdict::before{content:"";position:absolute;inset:0;background:radial-gradient(120% 140% at 0% 0%,rgba(255,255,255,.28),transparent 55%);pointer-events:none}
+.verdict .vh{opacity:.9 !important}
+.verdict.v-ok{background:linear-gradient(135deg,#10b981,#0d9488 55%,#0891b2) !important;--vg:rgba(16,185,129,.7)}
+.verdict.v-bad{background:linear-gradient(135deg,#fb7185,#e11d48 55%,#9f1239) !important;--vg:rgba(225,29,72,.65)}
+.verdict.v-warn{background:linear-gradient(135deg,#fbbf24,#f97316 60%,#ea580c) !important;--vg:rgba(249,115,22,.65)}
+.verdict.v-wait{background:linear-gradient(135deg,#8b9bd0,#6366f1 60%,#7c3aed) !important;--vg:rgba(99,102,241,.55)}
+.verdict .sv.b{background:rgba(255,255,255,.26) !important;box-shadow:none !important}
+
+/* کادرهای هشدار و پیام: نوار رنگی کنار + گرادیان ملایم (در حالت تیره هم درست) */
+.msg,.big,.rep,.note{position:relative;overflow:hidden;border:1px solid var(--bl,var(--line)) !important;border-inline-start:4px solid var(--ba,var(--line)) !important}
+.msg.ok,.big.ok{--bl:rgba(16,185,129,.35);--ba:#10b981;background:linear-gradient(135deg,rgba(16,185,129,.20),rgba(16,185,129,.05)) !important;color:var(--ok-fg) !important}
+.msg.h,.big.h,.big.bad{--bl:rgba(244,63,94,.35);--ba:#f43f5e;background:linear-gradient(135deg,rgba(244,63,94,.20),rgba(244,63,94,.05)) !important;color:var(--bad-fg) !important}
+.msg.w,.big.w,.big.warn{--bl:rgba(245,158,11,.4);--ba:#f59e0b;background:linear-gradient(135deg,rgba(245,158,11,.22),rgba(245,158,11,.05)) !important;color:var(--warn-fg) !important}
+.msg.wait,.big.wait{--bl:rgba(99,102,241,.3);--ba:#6366f1;background:linear-gradient(135deg,rgba(99,102,241,.16),rgba(99,102,241,.04)) !important;color:var(--wait-fg) !important}
+.rep,.note{--ba:#818cf8;background:linear-gradient(135deg,rgba(99,102,241,.10),rgba(6,182,212,.05)) !important}
+.rep{padding:11px 14px !important;font-size:13px !important;line-height:2 !important}
+
+/* کارت‌ها */
+.sg{border-radius:18px !important;border:1px solid var(--line) !important;background:var(--bg) !important;background:linear-gradient(180deg,color-mix(in srgb,var(--acc) 8%,var(--bg)),var(--bg) 60%) !important;box-shadow:0 2px 10px rgba(24,28,60,.05) !important}
+.sg h5{font-size:13.5px !important}
+.sg h5::before{width:5px !important;height:17px !important;background:linear-gradient(180deg,#06b6d4,#6366f1,#a855f7) !important}
+.sg .big{background:linear-gradient(135deg,#6366f1,#a855f7);-webkit-background-clip:text;background-clip:text;color:transparent !important}
+.step>.sh .num{background:linear-gradient(135deg,#6366f1,#a855f7) !important;color:#fff !important;box-shadow:0 4px 10px -3px rgba(99,102,241,.6)}
+.step.open{border-color:color-mix(in srgb,var(--acc) 40%,var(--line)) !important}
+.step.open>.sh{background:linear-gradient(90deg,transparent,color-mix(in srgb,var(--acc) 9%,transparent))}
+
+/* دکمه‌ها و انتخاب‌ها */
+.tabs button.on{background:linear-gradient(135deg,#6366f1,#8b5cf6) !important;color:#fff !important;box-shadow:0 6px 14px -5px rgba(99,102,241,.7) !important}
+.chip.on,.ad .mt button.on{background:linear-gradient(135deg,#6366f1,#8b5cf6) !important;border-color:transparent !important;color:#fff !important}
+.ad .row2 button.pri,button.pri{background:linear-gradient(135deg,#6366f1,#8b5cf6) !important;border-color:transparent !important;color:#fff !important;box-shadow:0 6px 14px -5px rgba(99,102,241,.7)}
+.yn button.on[data-v="بله"]{background:linear-gradient(135deg,#34d399,#059669) !important;color:#fff !important}
+.yn button.on[data-v="خیر"]{background:linear-gradient(135deg,#fb7185,#e11d48) !important;color:#fff !important}
+.ad .hero{border:1.5px solid transparent !important;background:linear-gradient(var(--bg),var(--bg)) padding-box,linear-gradient(135deg,#06b6d4,#6366f1,#a855f7) border-box !important;box-shadow:0 8px 22px -12px rgba(99,102,241,.6)}
+.ad .hero.none{background:var(--bg) !important;border-color:var(--line) !important}
+.dock .sub button.on{background:linear-gradient(135deg,#6366f1,#8b5cf6) !important;border-color:transparent !important;color:#fff !important}
+.dock .nav button.on{background:linear-gradient(180deg,color-mix(in srgb,var(--acc) 16%,transparent),color-mix(in srgb,var(--acc) 6%,transparent)) !important}
+.dock .nav button.on .sv,.hd button .sv{background:linear-gradient(135deg,#6366f1,#a855f7)}
+.dock .nav button .ic{filter:none !important}
+.hd button{background:linear-gradient(135deg,color-mix(in srgb,var(--acc) 16%,var(--bg)),color-mix(in srgb,var(--acc) 7%,var(--bg))) !important}
+.risk input[type=range]::-webkit-slider-thumb{border-color:#6366f1 !important}
+
+/* ================= نوار پایین: Liquid Glass ================= */
+.panel{position:relative !important}
+.body{padding-bottom:150px !important}
+.dock{position:absolute !important;left:12px;right:12px;bottom:12px;z-index:20;margin:0 !important;overflow:hidden;
+  border-radius:28px !important;padding:9px 9px 7px !important;
+  background:linear-gradient(135deg,rgba(255,255,255,.74),rgba(255,255,255,.42) 55%,rgba(255,255,255,.62)) !important;
+  -webkit-backdrop-filter:blur(30px) saturate(200%) brightness(1.08);backdrop-filter:blur(30px) saturate(200%) brightness(1.08);
+  border:1px solid rgba(255,255,255,.7) !important;
+  box-shadow:inset 0 1.5px 1px rgba(255,255,255,.95),inset 0 -1.5px 2px rgba(255,255,255,.35),inset 0 0 22px rgba(255,255,255,.28),
+    0 14px 34px -10px rgba(50,50,120,.45),0 2px 6px rgba(50,50,120,.12) !important}
+/* برق نور (specular) و لبه‌ی رنگین‌کمانی ظریف */
+.dock::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:0;
+  background:radial-gradient(90% 70% at 12% -30%,rgba(255,255,255,.85),transparent 55%),
+    radial-gradient(60% 50% at 95% 120%,rgba(168,85,247,.22),transparent 60%),
+    radial-gradient(50% 45% at 5% 120%,rgba(6,182,212,.20),transparent 60%)}
+.dock::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:0;padding:1px;
+  background:linear-gradient(135deg,rgba(255,255,255,.95),rgba(255,255,255,0) 35%,rgba(255,255,255,0) 65%,rgba(255,255,255,.7));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+.dock>*{position:relative;z-index:1}
+.dock .sub button{background:rgba(255,255,255,.38) !important;border:1px solid rgba(255,255,255,.7) !important;color:var(--fg) !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.9) !important;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.dock .sub button.on{background:linear-gradient(135deg,rgba(99,102,241,.92),rgba(139,92,246,.88)) !important;border-color:rgba(255,255,255,.55) !important;color:#fff !important;
+  box-shadow:inset 0 1px 1px rgba(255,255,255,.55),0 8px 18px -6px rgba(99,102,241,.75) !important}
+.dock .nav button{color:color-mix(in srgb,var(--fg) 62%,transparent) !important}
+.dock .nav button.on{background:linear-gradient(180deg,rgba(255,255,255,.75),rgba(255,255,255,.34)) !important;
+  box-shadow:inset 0 1.5px 1px rgba(255,255,255,.95),inset 0 -1px 2px rgba(99,102,241,.12),0 6px 14px -6px rgba(99,102,241,.5) !important;
+  border:1px solid rgba(255,255,255,.7) !important}
+@media (prefers-color-scheme:dark){
+  .dock{background:linear-gradient(135deg,rgba(60,66,110,.68),rgba(24,28,52,.5) 55%,rgba(50,56,96,.64)) !important;border-color:rgba(255,255,255,.2) !important;
+    box-shadow:inset 0 1.5px 1px rgba(255,255,255,.28),inset 0 -1.5px 2px rgba(255,255,255,.06),inset 0 0 22px rgba(139,135,255,.12),
+      0 16px 38px -10px rgba(0,0,0,.75),0 2px 6px rgba(0,0,0,.3) !important}
+  .dock::before{background:radial-gradient(90% 70% at 12% -30%,rgba(255,255,255,.28),transparent 55%),
+    radial-gradient(60% 50% at 95% 120%,rgba(168,85,247,.3),transparent 60%),radial-gradient(50% 45% at 5% 120%,rgba(6,182,212,.22),transparent 60%)}
+  .dock::after{background:linear-gradient(135deg,rgba(255,255,255,.45),rgba(255,255,255,0) 35%,rgba(255,255,255,0) 65%,rgba(255,255,255,.25))}
+  .dock .sub button{background:rgba(255,255,255,.08) !important;border-color:rgba(255,255,255,.18) !important;box-shadow:inset 0 1px 0 rgba(255,255,255,.2) !important}
+  .dock .nav button.on{background:linear-gradient(180deg,rgba(255,255,255,.2),rgba(255,255,255,.06)) !important;border-color:rgba(255,255,255,.22) !important;
+    box-shadow:inset 0 1.5px 1px rgba(255,255,255,.3),0 6px 14px -6px rgba(139,135,255,.5) !important}
+}
+
+.dock .sub{overflow:visible !important;padding:2px 2px 6px !important}
+
+/* دکمه‌ی «پر کردن از متن انتخاب‌شده‌ی صفحه» در برنامه معنی ندارد */
+.fld button.pick{display:none !important}
